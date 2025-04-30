@@ -1,0 +1,15 @@
+# Ignore node_modules in both frontend and backend
+/intern-portal-management/node_modules
+/server/node_modules
+
+# Ignore environment files if any
+.env
+/intern-portal-management/.env
+/server/.env
+
+# Ignore build folders (optional, if you build frontend/backend)
+intern-portal-management/build
+server/dist
+
+# System files (optional)
+.DS_Store

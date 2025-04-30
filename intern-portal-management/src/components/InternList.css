@@ -1,0 +1,142 @@
+body {
+  background-color: #0b1d3a; /* Deep navy blue */
+  color: #f1f1f1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 0vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align content to the top */
+  overflow-y: auto; /* Allow the page to scroll */
+}
+
+.intern-list-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align children from top to bottom */
+  align-items: center;
+  width: 100%;
+  max-width: 600px; /* Limit container width */
+  min-height: 60vh; /* Ensures the container grows but stays within 80% of the viewport height */
+  overflow-y: auto; /* Allow scrolling if content overflows vertically */
+  box-sizing: border-box;
+}
+
+.back-button {
+  background-color: #1c74d4;
+  color: white;
+  border: none;
+  padding: 8px 12px;  /* Smaller padding */
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;  /* Smaller font size */
+  margin-top: 20px;  /* Position it with a margin at the top */
+  transition: background-color 0.3s;
+  align-self: center;  /* Center the button */
+}
+
+.back-button:hover {
+  background-color: #155ab0;
+}
+
+.card-center {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  flex-direction: column;  /* Stack elements vertically */
+  margin-top: 20px;
+  align-items: center;  /* Center everything horizontally */
+  width: 100%; /* Ensure full width for content */
+}
+
+.intern-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow the items to wrap to the next line if necessary */
+  justify-content: center; /* Center the cards horizontally */
+  gap: 15px; /* Add spacing between the cards */
+  max-width: 600px;
+  width: 100%;
+  overflow-y: auto; /* Allow scrolling if the content overflows vertically */
+  flex-grow: 1; /* Allow the list to expand and fill the container */
+}
+
+.intern-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content inside each item */
+  padding: 12px 16px; /* Adjusted padding for a smaller size */
+  margin-bottom: 10px; /* Adjusted margin to fit better */
+  border-radius: 10px;
+  background-color: #1e2a49;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px; /* Smaller width for intern cards */
+}
+
+.intern-item:hover {
+  background-color: #2a3a5f;
+  transform: translateY(-2px);
+}
+
+.intern-avatar {
+  width: 50px;  /* Smaller avatar size */
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.intern-image {
+  width: 50%;  /* Make the image responsive to the container's width */
+  max-width: 50px;  /* Limit the max width to prevent it from getting too large */
+  height: 50px;  /* Ensure the image keeps its aspect ratio */
+  border-radius: 10px;  /* Optional: Add rounded corners for the image */
+  object-fit: cover;  /* Ensure the image fits without stretching */
+}
+
+.intern-name {
+  margin: 0;
+  font-size: 1rem;  /* Slightly smaller font size */
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.intern-list-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  margin-top: auto;
+  border-top: 1px solid #2e3a5c;
+  font-size: 0.9rem;
+}
+
+.pagination button {
+  background-color: #1c74d4;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+

@@ -1,0 +1,184 @@
+/* General Styles */
+body {
+    background-color: #0b1d3a;
+    color: #f1f1f1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 170vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+  
+  .add-intern-container {
+    padding: 20px;
+    background-color: #1e2a49;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    margin-top: 50px;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    color: #f1f1f1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form field containers */
+  .form-field {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  /* Input fields styling */
+  .input-field,
+  .input-slider,
+  .social-link-input,
+  .file-input {
+    width: 100%;
+    padding: 10px;
+    background-color: #2a3a5f;
+    border: 1px solid #1c74d4;
+    border-radius: 8px;
+    color: #f1f1f1;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensure padding/border are inside the width */
+  }
+  
+  /* File Input */
+  .file-input {
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    padding: 10px 0;
+  }
+  
+  input[type="file"] {
+    width: auto;
+    padding: 5px 10px;
+  }
+  
+  /* Button styles */
+  button {
+    padding: 10px 15px;
+    background-color: #1c74d4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  button:hover {
+    background-color: #155ab0;
+  }
+  
+  /* Error message */
+  .error-text {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  /* Social Link Section */
+  .social-link-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .remove-link-button,
+  .add-link-button {
+    padding: 5px 10px;
+    background-color: #d71c1c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .remove-link-button:hover,
+  .add-link-button:hover {
+    background-color: #b10f0f;
+  }
+  
+  /* Image Preview */
+  .image-preview {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .image-preview-img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Submit Button */
+  .submit-button {
+    background-color: #1c74d4;
+    padding: 12px;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #155ab0;
+  }
+  
+  /* Slider for duration */
+  .input-slider {
+    width: 100%;
+    background-color: #2a3a5f;
+    border: 1px solid #1c74d4;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    height: 2px;
+    background-color: #2a3a5f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="range"]:focus {
+    outline: none;
+  }
+  
+  /* General input alignment */
+  input[type="text"],
+  input[type="url"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    background-color: #2a3a5f;
+    border: 1px solid #1c74d4;
+    border-radius: 8px;
+    color: #f1f1f1;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures the width includes padding */
+  }
+  
+  textarea {
+    min-height: 100px;
+    resize: vertical; /* Allows vertical resize */
+  }
+  
+  /* Prevent the text box from overflowing the container */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds spacing between form elements */
+  }
+  
