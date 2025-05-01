@@ -1,0 +1,60 @@
+/* Signup Component Styles */
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align the form at the top */
+    align-items: center;
+    height: 100vh;
+    background: #0b1d3a;  /* Navy Blue Background */
+    padding-top: 40px;  /* Space above form */
+  }
+  
+  .signup h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;  /* White text for header */
+  }
+  
+  .signup form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .signup input,
+  .signup select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+  }
+  
+  .signup input:focus,
+  .signup select:focus {
+    border-color: #003366;  /* Navy Blue on Focus */
+    outline: none;
+  }
+  
+  .signup button {
+    width: 100%;
+    padding: 15px;
+    background-color: #003366;  /* Navy Blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup button:hover {
+    background-color: #001f3d;  /* Darker Navy Blue on Hover */
+  }
+  

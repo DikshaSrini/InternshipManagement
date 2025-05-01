@@ -1,0 +1,58 @@
+/* Login Component Styles */
+.login {
+    display: flex;
+    flex-direction: column;  /* Stack the heading and form vertically */
+    justify-content: center;  /* Center the content vertically */
+    align-items: center;  /* Center the content horizontally */
+    height: 100vh;  /* Full viewport height */
+    background: #0b1d3a;  /* Navy Blue Background */
+  }
+  
+  .login h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;  /* White text for header */
+    text-align: center;  /* Ensure the heading is centered */
+  }
+  
+  .login form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;  /* Form width constraint */
+  }
+  
+  .login input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+  }
+  
+  .login input:focus {
+    border-color: #003366;  /* Navy Blue on Focus */
+    outline: none;
+  }
+  
+  .login button {
+    width: 100%;
+    padding: 15px;
+    background-color: #003366;  /* Navy Blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login button:hover {
+    background-color: #001f3d;  /* Darker Navy Blue on Hover */
+  }
+  

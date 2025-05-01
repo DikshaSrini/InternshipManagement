@@ -1,9 +1,18 @@
-import mockData from '../mockData.json';
- 
-export function fetchInterns() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mockData);
-    }, 1000);
-  });
-}
+import axios from 'axios';
+
+const API = axios.create({
+  baseURL: 'http://localhost:5000/api',
+});
+
+export const signupUser = (userData) => API.post('/auth/signup', userData);
+export const loginUser = (userData) => API.post('/auth/login', userData);
+
+export const setAuthToken = (token) => {
+  if (token) {
+    API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete API.defaults.headers.common['Authorization'];
+  }
+};
+
+export default API;

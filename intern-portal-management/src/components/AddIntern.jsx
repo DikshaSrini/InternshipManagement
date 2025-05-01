@@ -143,7 +143,6 @@ const AddIntern = ({ setInterns }) => {
                 alert("There was an error posting the intern.");
             });
     };
-    
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];

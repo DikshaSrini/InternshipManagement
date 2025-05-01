@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import InternList from "./components/InternList";
 import AddIntern from "./components/AddIntern";
 import TechPreferences from "./components/TechPreferences";
 import TechStats from "./components/TechStats";
-import ProjectAssignment from "./components/ProjectAssignment"; // ✅ New import
+import ProjectAssignment from "./components/ProjectAssignment";
 import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
   const [interns, setInterns] = useState([]);
+  const location = useLocation(); // ✅ Get current path
 
-  // Fetch interns from the backend
   const fetchInterns = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/interns");
@@ -26,19 +28,25 @@ function App() {
   }, []);
 
   const handlePollSubmit = () => {
-    // After submitting preferences, fetch latest data
     fetchInterns();
   };
 
   return (
     <>
-      <Navbar />
+      {/* ✅ Show Navbar only if NOT on login/signup */}
+      {!["/login", "/signup"].includes(location.pathname) && <Navbar />}
+      
       <Routes>
         <Route path="/" element={<InternList interns={interns} />} />
         <Route path="/add" element={<AddIntern setInterns={setInterns} />} />
-        <Route path="/poll" element={<TechPreferences interns={interns} onSubmit={handlePollSubmit} />} />
+        <Route
+          path="/poll"
+          element={<TechPreferences interns={interns} onSubmit={handlePollSubmit} />}
+        />
         <Route path="/stats" element={<TechStats interns={interns} />} />
-        <Route path="/assign" element={<ProjectAssignment interns={interns} />} /> {/* ✅ New Route */}
+        <Route path="/assign" element={<ProjectAssignment interns={interns} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </>
   );
