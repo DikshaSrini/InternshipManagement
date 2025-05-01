@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ProfileCard from "./ProfileCard";
 import "./InternList.css";
 
 const defaultImage = "https://via.placeholder.com/150";
 
 const InternList = () => {
+  const navigate = useNavigate();
   const [interns, setInterns] = useState([]);
   const [selectedIntern, setSelectedIntern] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,7 +33,25 @@ const InternList = () => {
 
   const toggleView = () => setView(view === "card" ? "table" : "card");
 
-  // Extract unique roles
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this intern?")) return;
+
+    try {
+      await fetch(`http://localhost:5000/api/interns/${id}`, {
+        method: "DELETE",
+      });
+
+      setInterns((prev) => prev.filter((intern) => intern._id !== id));
+      setSelectedIntern(null);
+    } catch (error) {
+      console.error("Failed to delete intern:", error);
+    }
+  };
+
+  const handleEdit = (intern) => {
+    navigate(`/edit-intern/${intern._id}`);
+  };
+
   const roles = [...new Set(interns.map((i) => i.position))];
 
   const filteredInterns = interns
@@ -67,14 +87,18 @@ const InternList = () => {
             <button onClick={() => setSelectedIntern(null)} className="back-button">
               Back to List
             </button>
-            <ProfileCard {...selectedIntern} />
+            <ProfileCard
+              {...selectedIntern}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
           </section>
         ) : (
           <section className="intern-list">
             <h1>Intern Directory</h1>
-            {interns.map((intern, idx) => (
+            {interns.map((intern) => (
               <article
-                key={idx}
+                key={intern._id}
                 className="intern-item"
                 onClick={() => setSelectedIntern(intern)}
               >
@@ -84,6 +108,7 @@ const InternList = () => {
                   className="intern-avatar"
                 />
                 <h3 className="intern-name">{intern.name}</h3>
+                {/* Removed the Edit button here */}
               </article>
             ))}
           </section>
@@ -132,14 +157,18 @@ const InternList = () => {
                 <th style={tableHeader}>Name</th>
                 <th style={tableHeader}>Position</th>
                 <th style={tableHeader}>Institution</th>
+                <th style={tableHeader}>Actions</th>
               </tr>
             </thead>
             <tbody>
               {paginatedInterns.map((intern) => (
-                <tr key={intern.id} style={{ borderBottom: "1px solid #444" }}>
+                <tr key={intern._id} style={{ borderBottom: "1px solid #444" }}>
                   <td style={tableCell}>{intern.name}</td>
                   <td style={tableCell}>{intern.position}</td>
                   <td style={tableCell}>{intern.institution}</td>
+                  <td style={tableCell}>
+                    <button onClick={() => handleEdit(intern)}>Edit</button>
+                  </td>
                 </tr>
               ))}
             </tbody>

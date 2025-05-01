@@ -3,6 +3,7 @@ import defaultImage from '../assets/interns.jpg';
 import './ProfileCard.css';
 
 const ProfileCard = ({
+  _id,
   name,
   image = defaultImage,
   description,
@@ -12,7 +13,9 @@ const ProfileCard = ({
   duration,
   status,
   socialLinks = [],
-  funFact
+  funFact,
+  onEdit,
+  onDelete,
 }) => {
   const [showFunFact, setShowFunFact] = useState(false);
 
@@ -84,6 +87,32 @@ const ProfileCard = ({
           💡 {funFact}
         </aside>
       )}
+
+      <div className="profile-actions">
+        <button
+          className="edit-button"
+          onClick={() =>
+            onEdit({
+              _id,
+              name,
+              image,
+              description,
+              skills,
+              position,
+              institution,
+              duration,
+              status,
+              socialLinks,
+              funFact,
+            })
+          }
+        >
+          ✏️ Edit
+        </button>
+        <button className="delete-button" onClick={() => onDelete(_id)}>
+          🗑️ Delete
+        </button>
+      </div>
     </section>
   );
 };

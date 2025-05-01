@@ -1,0 +1,139 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    padding: 30px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #4CAF50;
+    font-weight: 600;
+  }
+  
+  .edit-intern-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .input-field, .textarea-field {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+  
+  .input-field:focus, .textarea-field:focus {
+    border-color: #4CAF50;
+  }
+  
+  .textarea-field {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  button[type="button"] {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #d32f2f;
+  }
+  
+  .social-link {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .social-link label {
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .form-group-small {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  .form-group-small input {
+    flex: 1;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .form-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .form-group-small {
+      flex-direction: column;
+    }
+  }
+  

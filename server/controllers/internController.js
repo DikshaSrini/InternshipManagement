@@ -51,3 +51,35 @@ exports.addIntern = async (req, res) => {
     res.status(500).send("Error adding intern");
   }
 };
+
+// ✅ DELETE: Remove an intern by ID
+exports.deleteIntern = async (req, res) => {
+  const { internId } = req.params;  // Get internId from the URL parameter
+
+  try {
+    const deletedIntern = await Intern.findByIdAndDelete(internId);
+    if (!deletedIntern) return res.status(404).send("Intern not found");
+
+    res.send("Intern deleted successfully");
+  } catch (err) {
+    console.error('Error deleting intern:', err);
+    res.status(500).send("Error deleting intern");
+  }
+};
+
+// ✅ PUT: Update intern details
+exports.updateIntern = async (req, res) => {
+  const { internId } = req.params;  // Get internId from the URL parameter
+  const updateData = req.body;  // Get the updated intern data from the request body
+
+  try {
+    const updatedIntern = await Intern.findByIdAndUpdate(internId, updateData, { new: true });
+    if (!updatedIntern) return res.status(404).send("Intern not found");
+
+    res.json(updatedIntern);  // Return the updated intern data
+  } catch (err) {
+    console.error('Error updating intern:', err);
+    res.status(500).send("Error updating intern");
+  }
+};
+

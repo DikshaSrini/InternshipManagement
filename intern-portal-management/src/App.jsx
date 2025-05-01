@@ -8,10 +8,11 @@ import ProjectAssignment from "./components/ProjectAssignment";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import EditIntern from "./components/EditIntern";  // Import the EditIntern component
 
 function App() {
   const [interns, setInterns] = useState([]);
-  const location = useLocation(); // ✅ Get current path
+  const location = useLocation();
 
   const fetchInterns = async () => {
     try {
@@ -33,20 +34,18 @@ function App() {
 
   return (
     <>
-      {/* ✅ Show Navbar only if NOT on login/signup */}
+      {/* Show Navbar only if NOT on login/signup */}
       {!["/login", "/signup"].includes(location.pathname) && <Navbar />}
       
       <Routes>
         <Route path="/" element={<InternList interns={interns} />} />
         <Route path="/add" element={<AddIntern setInterns={setInterns} />} />
-        <Route
-          path="/poll"
-          element={<TechPreferences interns={interns} onSubmit={handlePollSubmit} />}
-        />
+        <Route path="/poll" element={<TechPreferences interns={interns} onSubmit={handlePollSubmit} />} />
         <Route path="/stats" element={<TechStats interns={interns} />} />
         <Route path="/assign" element={<ProjectAssignment interns={interns} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/edit-intern/:id" element={<EditIntern interns={interns} />} /> {/* Edit Intern Route */}
       </Routes>
     </>
   );
